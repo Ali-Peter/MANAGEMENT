@@ -1,0 +1,17 @@
+{% extends "../layout.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+{% if products %}
+{% for product in products %}
+    <legend><h1> You Searched for <b>{{ searched }}</b>:</h1></legend>
+    <br><br>
+    <div class="content-section">
+        <h3 style="cursor: pointer; cursor: hand;" onclick="window.location = `{% url 'sales' product.id %}`">{{product.name}}</h3>
+    </div>
+{% endfor %}
+
+{% else %}
+    <h3>No Search Results For This Query...</h3>
+{% endif %}
+{% endblock %}

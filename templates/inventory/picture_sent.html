@@ -1,0 +1,11 @@
+{% extends "../layout.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+<div class="content-section">
+    <form action="{% url 'send_picture' %}" method="POST">
+        (% csrf_token %)
+        <button type="submit">Send Picture via WhatsApp</button>
+    </form>
+</div>
+{% endblock %}

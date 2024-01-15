@@ -1,0 +1,12 @@
+body{
+    background-color: rgb(#f0eef4, #efeef1, #f6f6f9);
+}
+.content-section{
+    background: rgb(248, 248, 253);
+    margin: 48px;
+    padding: 1.5rem 1.5rem;
+    border-radius: 18px;
+}
+.footer-section{
+    background: black;
+}

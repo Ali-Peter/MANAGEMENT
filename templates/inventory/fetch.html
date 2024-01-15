@@ -1,0 +1,41 @@
+{% extends "../layout.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+{% for model in model %}
+<form method="GET" role="form" action="">
+    <div class="input-group mb-2 float-left" style="padding-left:120px">
+           <div class="input-group-prepend">
+               <span class="input-group-text row-md-6" id="inputGroup-sizing-default">Load</span>
+           </div>
+           <input type="search" name="search" class="form-control col-md-4" id="inputtext" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+
+        <a href="{% url 'fetch' %}">
+           <button type="button" class="fas fa-sync-alt btn btn-secondary btn-lg" aria-describedby="inputtext"><span class="ml-1">Load</span></button>
+        </a>
+    </div>
+</form>
+
+<form method="POST" class="form" role="form" action="">
+   <!-- The below CSRF Token makes form Secure -->
+   {% csrf_token %}
+   <div class="container">
+    <br>
+    <br>
+    {% crispy form %}
+        <button type="submit" class="btn btn-primary">
+            {% if action == "submit" %}
+                <span class="fas fa-plus"></span>Submit
+            {% else %}
+                <span class="fas fa-edit"></span>Update
+            {% endif %}
+        </button>
+        <button type="reset" class="btn btn-primary" aria-label="Close" data-dismiss="modal">
+            <span aria-hidden="true">&times;</span>Cancel
+        </button>
+    </div>
+</form>
+{% endfor %}
+{% endblock %}
+{% block scripts %}
+{% endblock scripts %}
